@@ -6,9 +6,16 @@ resource "aws_s3_bucket" "bucket" {
 resource "aws_s3_bucket_server_side_encryption_configuration" "encrypt_config" {
   bucket = aws_s3_bucket.bucket.bucket
 
-   rule {
+  rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "AES256"
+      sse_algorithm = "AES256"
     }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "version_config" {
+  bucket = aws_s3_bucket.bucket.bucket
+  versioning_configuration {
+    status = "Enabled"
   }
 }

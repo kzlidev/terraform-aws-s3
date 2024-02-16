@@ -9,8 +9,8 @@ variable "tags" {
   default     = {}
 }
 
-#variable "new_variable" {
-#  description = "New variable"
-#  type        = string
-#  default     = ""
-#}
+variable "new_variable" {
+  description = "New variable"
+  type        = string
+  default     = ""
+}

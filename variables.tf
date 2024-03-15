@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  type        = string
+  type = string
   description = "Name of S3 bucket"
 }
 
@@ -9,8 +9,14 @@ variable "tags" {
   default     = {}
 }
 
-variable "new_variable" {
-  description = "New variable"
+variable "region" {
+  description = "AWS Region to deploy into"
   type        = string
-  default     = ""
+  default     = "ap-southeast-1"
+  validation {
+    condition = contains([
+      "ap-southeast-1", "ap-southeast-2", "ap-northeast-1", "ap-northeast-2", "ap-northeast-3", "ap-south-1"
+    ], var.region)
+    error_message = "AWS Region must be in Asia Pacific"
+  }
 }

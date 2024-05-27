@@ -3,7 +3,7 @@ variables {
 }
 
 run "valid_bucket_name" {
-  command = apply
+  command = plan
 
   variables {
     bucket_name = "likz-demo-1"

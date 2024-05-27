@@ -1,9 +1,11 @@
+mock_provider "aws" {}
+
 variables {
   bucket_name = "likz-demo"
 }
 
 run "valid_bucket_name" {
-  command = plan
+  command = apply
 
   variables {
     bucket_name = "likz-demo-1"

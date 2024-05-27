@@ -1,19 +1,17 @@
-mock_provider "aws" {}
-
 variables {
-  bucket_name = "test"
+  bucket_name = "likz-demo"
 }
 
 run "valid_bucket_name" {
-  command = plan
+  command = apply
 
   variables {
-    bucket_name = "likz"
+    bucket_name = "likz-demo-1"
   }
 
   assert {
-    condition     = endswith(aws_s3_bucket.bucket.bucket, "-bucket")
-    error_message = "S3 bucket name should end with `-bucket`"
+    condition     = aws_s3_bucket.bucket.bucket == "likz-demo-1-bucket"
+    error_message = "S3 bucket name should be `likz-demo-1-bucket`"
   }
 }
 
@@ -21,7 +19,7 @@ run "invalid_valid_region" {
   command = plan
 
   variables {
-    bucket_name = "likz"
+    bucket_name = "likz-demo-2"
     region      = "us-east-1"
   }
 

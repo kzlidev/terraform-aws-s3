@@ -20,3 +20,7 @@ variable "region" {
     error_message = "AWS Region must be on of `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, `ap-northeast-2`, `ap-northeast-3` or `ap-south-1`"
   }
 }
+
+#variable "new_variable" {
+#  default = ""
+#}

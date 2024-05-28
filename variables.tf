@@ -21,6 +21,6 @@ variable "region" {
   }
 }
 
-#variable "new_variable" {
-#  default = ""
-#}
+variable "new_variable" {
+  default = ""
+}
